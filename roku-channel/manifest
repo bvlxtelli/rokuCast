@@ -1,0 +1,15 @@
+title=rokuCast
+major_version=1
+minor_version=0
+build_version=1
+mm_icon_focus_hd=pkg:/images/icon-hd.png
+mm_icon_side_hd=pkg:/images/icon-hd.png
+icon_1080=pkg:/images/icon-1080.png
+icon_720=pkg:/images/icon-720.png
+splash_screen_sd=pkg:/images/splash-sd.png
+splash_screen_hd=pkg:/images/splash-hd.png
+splash_screen_fhd=pkg:/images/splash-fhd.png
+splash_color=#0a0a0a
+ui_resolutions=fhd
+supports_input_launch=1
+requires_audiovideo_hdmi=0

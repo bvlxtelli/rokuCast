@@ -1,0 +1,17 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv venv
+      - run: uv pip install -e ".[dev]"
+      # NOTE: tests/ is intentionally local-only (never committed), so CI
+      # lints/formats src and runs a headless smoke import instead of pytest.
+      # Full suite runs locally: uv run pytest -q
+      - run: uv run ruff check src
+      - run: uv run ruff format --check src
+      - run: uv run python -m compileall -q src
+      - run: uv run python -c "import rokucast.app, rokucast.server, rokucast.discovery, rokucast.ecp, rokucast.media, rokucast.state; print('smoke ok')"

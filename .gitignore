@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+# User-local runtime data (caches, last-media, device IPs) — never commit
+.rokucast/
+config.json
+# Credentials / device IPs — NEVER commit (user-local only, Hydra-style)
+*.keys
+*secret*.txt
+*secret*.json
+# Local agent tooling (skills etc.) — never commit
+.agents/
+skills-lock.json
+# Tests stay local — never commit
+tests/
+# Roku sideload artifacts (zips with dev keys)
+*.pkg
+roku-channel/*.zip
+# Local notes
+*.orig.md

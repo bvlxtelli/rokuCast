@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="CastTask" extends="Task">
+  <interface>
+    <!-- Bridge a consultar: http://<bridge-ip>:8010 -->
+    <field id="bridgeUrl" type="string" />
+    <!-- Ultima midia anunciada pelo bridge -->
+    <field id="media" type="assocarray" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/CastTask.brs" />
+</component>

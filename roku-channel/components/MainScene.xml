@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="MainScene" extends="Scene">
+  <interface>
+    <!-- Chamado por main.brs via callFunc -->
+    <function name="handleLaunchArgs" />
+  </interface>
+
+  <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+
+  <children>
+    <Rectangle
+      id="bg"
+      width="1920" height="1080"
+      color="0x0A0A0AFF" />
+
+    <Label
+      id="titleLabel"
+      text="rokuCast — aguardando cast…"
+      horizAlign="center"
+      width="1920"
+      translation="[0,120]" />
+
+    <Label
+      id="statusLabel"
+      text="1) Abra o app rokuCast na TV  2) Aponte o bridge para este Roku  3) Cast do Android"
+      horizAlign="center"
+      width="1920"
+      translation="[0,180]"
+      font="font:SmallSystemFont" />
+
+    <Video
+      id="video"
+      width="1920" height="1080"
+      translation="[0,0]"
+      visible="false" />
+
+    <Poster
+      id="backdrop"
+      width="320" height="180"
+      translation="[800,500]"
+      uri="" />
+
+    <!-- Task que faz long-poll no bridge (fila de cast) -->
+    <CastTask id="castTask" />
+  </children>
+</component>

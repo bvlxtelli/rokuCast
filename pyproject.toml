@@ -1,0 +1,47 @@
+[project]
+name = "rokucast"
+version = "0.1.0"
+description = "Roku TV as an Android cast target: Chromecast-style bridge (PC/Raspberry) + SceneGraph receiver channel"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "AGPL-3.0-or-later" }
+dependencies = [
+]
+
+[project.optional-dependencies]
+mdns = ["zeroconf>=0.131"]
+dev = ["pytest>=8.0", "ruff>=0.4"]
+
+[project.scripts]
+rokucast = "rokucast.app:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+  "E4", "E7", "E9",  # pycodestyle errors
+  "F",               # pyflakes
+  "I",               # isort
+  "UP",              # pyupgrade
+  "B",               # flake8-bugbear
+]
+ignore = [
+  "BLE001",  # broad excepts keep bridge threads alive by design
+  "S110",    # try/except/pass on optional callbacks
+  "TRY002",  # tests
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
